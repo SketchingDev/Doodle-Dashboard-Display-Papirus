@@ -11,15 +11,13 @@ Papirus display for Doodle-Dashboard
 
 
 Installation
----
+------------
 
-Install via pip
+1. Install via pip::
 
-```
-pip3 install doodle-dashboard-display-papirus
-```
+    pip3 install doodle-dashboard-display-papirus
 
-Check that 'papirus' is listed by Doodle-Dashboard::
+2. Check that 'papirus' is listed by Doodle-Dashboard::
 
     doodledashboard list displays
 
