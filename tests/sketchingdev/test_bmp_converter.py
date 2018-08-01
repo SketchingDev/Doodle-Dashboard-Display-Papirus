@@ -3,7 +3,7 @@ import unittest
 from PIL import Image
 from os import path
 
-from sketchingdev.bmp_converter import _convert_bmp
+from sketchingdev.bmp_converter import convert_bmp
 
 
 class TestBmpConversion(unittest.TestCase):
@@ -37,6 +37,10 @@ class TestBmpConversion(unittest.TestCase):
                 "path": path.join(data_dir, "png_with_semi_transparent_bg.png"),
                 "percentage_diff_from_expected": 0
             },
+            {
+                "path": path.join(data_dir, "bmp_without_transparency.bmp"),
+                "percentage_diff_from_expected": 0
+            },
         ]
 
     def test_conversion_of_images_to_bmp(self):
@@ -44,7 +48,8 @@ class TestBmpConversion(unittest.TestCase):
             path = image_test["path"]
             acceptable_percentage_diff = image_test["percentage_diff_from_expected"]
 
-            converted_image_path = _convert_bmp(path)
+            converted_image_path = path + "-papirus.bmp"
+            convert_bmp(path, converted_image_path)
 
             percentage_diff = self._image_difference(converted_image_path, self.expected_image)
 

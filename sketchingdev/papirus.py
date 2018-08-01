@@ -1,16 +1,17 @@
+import os
+
 from doodledashboard.configuration.config import ConfigSection
 from doodledashboard.display import Display
 from doodledashboard.notifications import TextNotification, ImageNotification
 
 from papirus import Papirus, PapirusText, PapirusImage
 
-
-# https://github.com/SketchingDev/Doodle-Dashboard/commit/ef8572abe01165d44e7d6c4c7c49d9b1b838d8d9
-from sketchingdev.bmp_converter import _convert_bmp
+from sketchingdev.bmp_converter import convert_bmp
 
 
 class PapirusDisplay(Display):
     _WHITE = (255, 255, 255)
+    _IMAGE_SUFFIX = "-papirus.bmp"
 
     def __init__(self):
         self._screen = Papirus()
@@ -22,8 +23,14 @@ class PapirusDisplay(Display):
         if isinstance(notification, TextNotification):
             self._text.write(notification.get_text())
         elif isinstance(notification, ImageNotification):
-            image_path = _convert_bmp(notification.get_image_path())
+            image_path = notification.get_image_path()
+            converted_image_path = image_path + self._IMAGE_SUFFIX
+
+            if not os.path.exists(converted_image_path):
+                convert_bmp(image_path, converted_image_path)
+
             self._image.write(image_path)
+
 
     @staticmethod
     def get_supported_notifications():
