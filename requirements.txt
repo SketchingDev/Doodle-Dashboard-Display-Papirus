@@ -1,0 +1,2 @@
+doodle-dashboard>=0.0.16
+Pillow==5.2.0
