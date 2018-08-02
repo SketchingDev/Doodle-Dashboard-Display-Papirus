@@ -4,9 +4,20 @@ from doodledashboard.configuration.config import ConfigSection
 from doodledashboard.display import Display
 from doodledashboard.notifications import TextNotification, ImageNotification
 
-from papirus import Papirus, PapirusText, PapirusImage
-
 from sketchingdev.bmp_converter import convert_bmp
+from sketchingdev.error import contains_all_in_error_message
+
+try:
+    from papirus import Papirus, PapirusText, PapirusImage
+except ImportError as err:
+    if contains_all_in_error_message(err, ["No module named", "papirus"]):
+        raise ImportError(
+            "I've not been able to find the PaPiRus software for Python 3+ on your Raspberry Pi...\n" +
+            "If you haven't installed it then you should follow the instructions at " +
+            "https://github.com/PiSupply/PaPiRus#auto-installation"
+        )
+    else:
+        raise
 
 
 class PapirusDisplay(Display):
@@ -30,7 +41,6 @@ class PapirusDisplay(Display):
                 convert_bmp(image_path, converted_image_path)
 
             self._image.write(image_path)
-
 
     @staticmethod
     def get_supported_notifications():

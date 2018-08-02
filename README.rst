@@ -13,17 +13,13 @@ Papirus display for Doodle-Dashboard
 Installation
 ------------
 
-1. Install via pip::
+1. Make sure you've installed the PapiRus software. If not follow their Install PaPiRus software by following their `installation instructions <https://github.com/PiSupply/PaPiRus#auto-installation>`_
+
+2. Install via pip::
 
     pip3 install doodle-dashboard-display-papirus
 
-2. Check that 'papirus' is listed by Doodle-Dashboard::
+3. Check that 'papirus' is listed by Doodle-Dashboard::
 
     doodledashboard list displays
-
-
-If you receive the error `ImportError: libopenjp2.so.7: cannot open shared object file: No such file or directory`
-then run::
-
-    sudo apt-get install libopenjp2-7
 
