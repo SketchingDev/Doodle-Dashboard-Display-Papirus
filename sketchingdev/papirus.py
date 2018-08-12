@@ -40,7 +40,7 @@ class PapirusDisplay(Display):
             if not os.path.exists(converted_image_path):
                 convert_bmp(image_path, converted_image_path)
 
-            self._image.write(image_path)
+            self._image.write(converted_image_path)
 
     @staticmethod
     def get_supported_notifications():
