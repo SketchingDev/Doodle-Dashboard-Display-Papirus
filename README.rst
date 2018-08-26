@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSketchingDev%2FDoodle-Dashboard-Display-Papirus.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSketchingDev%2FDoodle-Dashboard-Display-Papirus?ref=badge_shield)
+
 Papirus display for Doodle-Dashboard
 ====================================
 
@@ -23,3 +25,7 @@ Installation
 
     doodledashboard list displays
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSketchingDev%2FDoodle-Dashboard-Display-Papirus.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSketchingDev%2FDoodle-Dashboard-Display-Papirus?ref=badge_large)
